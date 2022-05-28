@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <unistd.h>
 
+
+void help()
+{
+    printf("essa eh a saida para flag help");
+}
+
+void version()
+{
+    printf("essa eh a saida para flag version");
+}
+
 int main 
 (int argc, char **argv) 
 {
@@ -20,14 +31,4 @@ int main
 
     argc -= optind;
     argv += optind;
-}
-
-void help()
-{
-    printf("essa eh a saida para flag help");
-}
-
-void version()
-{
-    printf("essa eh a saida para flag help");
 }
