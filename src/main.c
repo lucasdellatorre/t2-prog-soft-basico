@@ -28,7 +28,7 @@ int main
                 version();
                 break;
             default:
-                fprintf(stderr, "opcao nao conhecida: %s\n", optarg);
+                fprintf(stderr, "Opção não conhecida: %s\n", optarg);
                 return 1;
         }
     }
