@@ -5,12 +5,15 @@ int main
 (int argc, char **argv) 
 {
     char ch;
-    while ( (ch = getopt(argc, argv, "h")) != EOF)
+    while ( (ch = getopt(argc, argv, "hv")) != EOF)
     {
         switch (ch)
         {
             case 'h':
                 help();
+                break;
+            case 'v':
+                version();
                 break;
         }
     }
@@ -21,5 +24,10 @@ int main
 
 void help()
 {
-    printf("essa eh a saida para flag help")
+    printf("essa eh a saida para flag help");
+}
+
+void version()
+{
+    printf("essa eh a saida para flag help");
 }
