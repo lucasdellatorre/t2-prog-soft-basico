@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 
 void help()
@@ -26,6 +27,9 @@ int main
             case 'v':
                 version();
                 break;
+            default:
+                fprintf(stderr, "opcao nao conhecida: %s\n", optarg);
+                return 1;
         }
     }
 
