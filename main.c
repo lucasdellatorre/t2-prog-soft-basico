@@ -37,7 +37,7 @@ int main(int argc, char * const argv[]) {
                 vflag++;
                 hflag++;
               }
-              printf("Usage: ./main.out  saida1.csv caso.txt");
+              printf("Usage: ./main.out  exit.csv caso.txt");
               break;
     }
   }
