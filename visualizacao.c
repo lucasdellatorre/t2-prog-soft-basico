@@ -15,7 +15,7 @@ const char* getfield(char* line, int num)
 
 int main(int argc, char *argv[]) {
   
-  FILE* exit = fopen("saida1.csv", "r");
+  FILE* exit = fopen("exit.csv", "r");
   FILE *txt_output_2 = fopen("palavras.html", "w");
   char line2[100000];
   //printf("%s", txt_output_2);
