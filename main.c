@@ -2,17 +2,45 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <getopt.h>
 #include "palavra.h"
 
 #define MAX_LEN 1000
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char * const argv[]) {
   Palavra *list_word = NULL; 
   FILE *txt_input = fopen(argv[1], "r");
   char line[MAX_LEN];
   int pcount = 1;
   int count_words = 0;
   int temp = 0;
+  int option;
+  int vflag = 0;
+  int hflag = 0;
+  while((option = getopt(argc, argv, "vh")) != -1) {
+    switch (option) {
+      case 'v':
+              if(vflag) {
+                printf("Only one option allowed\n");
+                exit(1);
+              } else {
+                vflag++;
+                hflag++;
+              }
+              printf("Indice Remissivo V1.0");
+              break;
+      case 'h':
+              if(hflag) {
+                printf("Only one option allowed\n");
+                exit(1);
+              } else {
+                vflag++;
+                hflag++;
+              }
+              printf("Usage: ./main.out  saida1.csv caso.txt");
+              break;
+    }
+  }
 
   if(txt_input == NULL) {
     printf("error in opening the file\n");
