@@ -102,11 +102,12 @@ void printa(Palavra *list, const char* arquivo) {
   } else {
       for(aux = list; aux != NULL; aux = aux->next) {
         // printa a palavra
-        fprintf(output, "\n%s; ", aux->string);
+        fprintf(output, "%s; ", aux->string);
         for(int i = 0; i < aux->len; i++) {
           // printa todas as ocorrencias em paragrafos
           fprintf(output, "%d | ", aux->array[i]);
         }
+        fprintf(output, "\n");
       }
     }
   fclose(output);
