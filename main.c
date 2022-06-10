@@ -8,7 +8,7 @@
 
 int main(int argc, char const *argv[]) {
   Palavra *list_word = NULL; 
-  FILE *txt_input = fopen(argv[1], "r");
+  FILE *txt_input = fopen(argv[2], "r");
   char line[MAX_LEN];
   int pcount = 1;
   int count_words = 0;
@@ -43,9 +43,11 @@ int main(int argc, char const *argv[]) {
     }
   }
   
-  printa(list_word, argv[2]);
+  printa(list_word, argv[1]);
   
   printf("\n");
+
+  printaHTML(argv[1], argv[3]);
 
   return 0;
 }

@@ -107,8 +107,55 @@ void printa(Palavra *list, const char* arquivo) {
         fprintf(output, "\n%s; ", aux->string);
         for(int i = 0; i < aux->len; i++) {
           // printa todas as ocorrencias em paragrafos
-          fprintf(output, "%d - ", aux->array[i]);
+          fprintf(output, "%d | ", aux->array[i]);
         }
       }
     }
+  fclose(output);
+}
+
+const char* getfield(char* line, int num)
+{
+  const char* tok;
+  for (tok = strtok(line, ";"); tok && *tok; tok = strtok(NULL, ";\n")) {
+    if (!--num)
+      return tok;
+  }
+  return NULL;
+}
+
+void printaHTML (const char* saida, const char* html) {
+  FILE* exit = fopen(saida, "r");
+  FILE *txt_output_2 = fopen(html, "w");
+  char line2[100000];
+
+  fprintf(txt_output_2, "<!DOCTYPE html> \
+  <html> \
+  <style> \
+  table, th, td { \
+    border: 1px solid black; \
+    font-size: 14pt; \
+    background: #ffc; \
+  } \
+  </style> \
+  <body> \
+  <h2>Saida do arquivo CSV</h2> \
+  <table> \
+  <tr> \
+  <th> Palavra </th> \
+  <th> Paragrafo </th> \
+  </tr> \
+  <tr>");
+ 
+  while (fgets(line2, 100000, exit)) {
+    char* tmp = strdup(line2);
+    fprintf(txt_output_2,"<tr><td>%s</td><td>%s</td></tr>", getfield(tmp, 1), getfield(tmp, 2));
+    // NOTE strtok clobbers tmp
+    free(tmp);
+  }
+  
+  fprintf(txt_output_2, "</tr> \
+  </table> \
+  </body> \
+  </html>");
 }
