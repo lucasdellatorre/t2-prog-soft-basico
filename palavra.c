@@ -15,7 +15,7 @@ struct typeword{
   Palavra* next; // ponteiro para a próxima palavra
 };
 
-// coloca a string em minúsculo e limpa ela de tudo que não for letra minúcula
+// coloca a string em minúsculo e limpa ela de tudo que não for letra minúscula
 void limpaString(char *word){
   
   int index = strlen(word) - 1;
@@ -31,7 +31,7 @@ void limpaString(char *word){
   return;
 }
 
-// verifica se adiciona uma nova palavra ou se somente adiciona o paragrafo onde esta
+// verifica se adiciona uma nova palavra ou se somente adiciona o parágrafo onde está
 Palavra* inserePalavra(char *word, Palavra *list, int paragraph, int *count_words){
   Palavra *i;
 
@@ -41,7 +41,6 @@ Palavra* inserePalavra(char *word, Palavra *list, int paragraph, int *count_word
     Palavra* first_word;
     first_word = (Palavra*)malloc(sizeof(Palavra));
 
-    //Passa os valores
     strcpy(first_word->string, word);
     first_word->array[0] = paragraph; // adiciona o paragrafo em que a palavra está
     first_word->len = 1;
@@ -103,7 +102,7 @@ void printa(Palavra *list, const char* arquivo) {
     printf("Lista vazia");
   } else {
       for(aux = list; aux != NULL; aux = aux->next) {
-        // printa a palavra e quantas vezes ela existe no texto
+        // printa a palavra
         fprintf(output, "\n%s; ", aux->string);
         for(int i = 0; i < aux->len; i++) {
           // printa todas as ocorrencias em paragrafos
@@ -114,6 +113,7 @@ void printa(Palavra *list, const char* arquivo) {
   fclose(output);
 }
 
+// pega campos do csv
 const char* getfield(char* line, int num)
 {
   const char* tok;
@@ -147,6 +147,7 @@ void printaHTML (const char* saida, const char* html) {
   </tr> \
   <tr>");
  
+  // copia linha e encontra os campos divididos por ;
   while (fgets(line2, 100000, exit)) {
     char* tmp = strdup(line2);
     fprintf(txt_output_2,"<tr><td>%s</td><td>%s</td></tr>", getfield(tmp, 1), getfield(tmp, 2));
