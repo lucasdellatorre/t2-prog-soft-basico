@@ -1,1 +1,0 @@
-<!DOCTYPE html>   <html>   <style>   table, th, td {       border: 1px solid black;       font-size: 14pt;       background: #ffc;   }   </style>   <body>   <h2>Saida do arquivo CSV</h2>   <table>   <tr>   <th> Palavra </th>   <th> Paragrafo </th>   </tr>   <tr></tr>   </table>   </body>   </html>

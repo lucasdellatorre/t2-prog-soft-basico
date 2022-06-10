@@ -97,7 +97,6 @@ void printa(Palavra *list, const char* arquivo) {
 
   FILE *output = fopen(arquivo, "w");
   Palavra* aux;
-  char *string;
   if(list == NULL) {
     printf("Lista vazia");
   } else {
