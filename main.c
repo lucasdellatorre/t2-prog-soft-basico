@@ -13,7 +13,6 @@ int main(int argc, char *const argv[])
   FILE *txt_input = fopen(argv[2], "r");
   char line[MAX_LEN];
   int pcount = 1;
-  int count_words = 0;
   int temp = 0;
   int option;
   int vflag = 0;
@@ -67,7 +66,7 @@ int main(int argc, char *const argv[])
 
       // printf("%s\n", token);
       limpaString(token);
-      list_word = inserePalavra(token, list_word, pcount, &count_words);
+      list_word = inserePalavra(token, list_word, pcount);
       token = strtok(NULL, " ");
     }
 

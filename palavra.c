@@ -36,7 +36,7 @@ void limpaString(char *word)
 }
 
 // verifica se adiciona uma nova palavra ou se somente adiciona o parágrafo onde está
-Palavra *inserePalavra(char *word, Palavra *list, int paragraph, int *count_words)
+Palavra *inserePalavra(char *word, Palavra *list, int paragraph)
 {
   Palavra *i;
 
@@ -99,7 +99,6 @@ Palavra *inserePalavra(char *word, Palavra *list, int paragraph, int *count_word
   new_word->len = 1;
   new_word->next = NULL;
   list_end->next = new_word;
-  *count_words = *count_words + 1;
   return list;
 }
 
@@ -116,6 +115,7 @@ void printa(Palavra *list, const char *arquivo)
   {
     for (aux = list; aux != NULL; aux = aux->next)
     {
+      printf("\n%s;%d", aux->string, aux->cont);
       // printa a palavra
       fprintf(output, "%s; | ", aux->string);
       for (int i = 0; i < aux->len; i++)
